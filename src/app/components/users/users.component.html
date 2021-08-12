@@ -2,8 +2,8 @@
 <h4 *ngIf="!loaded">Loading...</h4>
 
 <div class="content">
-  <ul *ngIf="users.length > 0">
-    <li *ngFor="let user of users">
+  <ul style="list-style: none" *ngIf="users.length > 0">
+    <li class="card" *ngFor="let user of users">
       <h2>{{ user.firstName }} {{ user.lastName }}</h2>
       <ul *ngIf="showExtended && user.age && user.address">
         <li>{{ user.age }}</li>

@@ -5,7 +5,7 @@ import { IUser } from 'src/app/models/User';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.sass'],
+  styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
   users!: IUser[];
@@ -47,11 +47,6 @@ export class UsersComponent implements OnInit {
         },
       },
     ];
-
-    this.addUser({
-      firstName: 'Test',
-      lastName: 'TESER',
-    });
 
     this.loaded = true;
   }
