@@ -1,6 +1,7 @@
 .card {
   padding: 1em;
   width: 25em;
+  border: 1px solid #c5c5c5;
 }
 
 .profile-container {
@@ -11,6 +12,8 @@
 
 .user-name {
   margin-left: 0.5em;
+  margin-top: 0 !important;
+  font-size: 1.6em;
 }
 
 img {
@@ -18,6 +21,7 @@ img {
   border-radius: 50px;
 }
 
-.notification {
+.tag {
   list-style: none;
+  display: block;
 }
