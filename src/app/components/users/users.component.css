@@ -2,3 +2,22 @@
   padding: 1em;
   width: 25em;
 }
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+}
+
+.user-name {
+  margin-left: 0.5em;
+}
+
+img {
+  width: 20%;
+  border-radius: 50px;
+}
+
+.notification {
+  list-style: none;
+}

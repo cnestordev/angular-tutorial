@@ -7,4 +7,6 @@ export interface IUser {
     city: string;
     state: string;
   };
+  image?: string;
+  isActive?: boolean;
 }

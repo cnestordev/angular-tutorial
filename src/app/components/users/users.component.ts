@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
   users!: IUser[];
   showExtended: boolean = true;
   loaded: boolean = false;
+  enableAdd: boolean = true;
 
   constructor() {}
 
@@ -25,6 +26,7 @@ export class UsersComponent implements OnInit {
           city: 'Boston',
           state: 'MA',
         },
+        image: 'http://lorempixel.com/600/600/people/3',
       },
       {
         firstName: 'Jane',
@@ -35,6 +37,7 @@ export class UsersComponent implements OnInit {
           city: 'Dallas',
           state: 'TX',
         },
+        image: 'http://lorempixel.com/600/600/people/3',
       },
       {
         firstName: 'Steve',
