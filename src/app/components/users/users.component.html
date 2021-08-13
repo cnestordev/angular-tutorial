@@ -1,5 +1,9 @@
 <h2>Users:</h2>
-<button [disabled]="!enableAdd" class="button is-primary is-light">
+<button
+  (click)="addUser({ firstName: 'Mary', lastName: 'Jane' })"
+  [disabled]="!enableAdd"
+  class="button is-primary is-light"
+>
   New User
 </button>
 

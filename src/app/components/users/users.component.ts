@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
           state: 'MA',
         },
         image: 'https://i.pravatar.cc/',
-        isActive: true,
+        isActive: false,
       },
       {
         firstName: 'Jane',
@@ -50,7 +50,7 @@ export class UsersComponent implements OnInit {
           city: 'Miami',
           state: 'FL',
         },
-        isActive: true,
+        isActive: false,
       },
     ];
 
@@ -59,5 +59,9 @@ export class UsersComponent implements OnInit {
 
   addUser(user: IUser) {
     this.users.push(user);
+  }
+
+  fireEvent(e: Event) {
+    console.log(e.type);
   }
 }
