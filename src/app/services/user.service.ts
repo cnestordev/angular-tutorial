@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { IUser } from './../models/User';
+import { IUser } from '../models/User';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DataService {
+export class UserService {
   users: IUser[];
   data: Observable<any>;
 
