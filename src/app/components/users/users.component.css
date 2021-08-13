@@ -25,3 +25,17 @@ img {
   list-style: none;
   display: block;
 }
+
+small {
+  position: absolute;
+  left: 351px;
+  top: 9px;
+}
+
+.control {
+  width: 30%;
+}
+
+.control .input {
+  margin: 0.2em 0;
+}

@@ -8,10 +8,19 @@ import { IUser } from 'src/app/models/User';
   styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
+  user: IUser = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    image: 'https://i.pravatar.cc/',
+    isActive: false,
+    hide: true,
+  };
   users!: IUser[];
   showExtended: boolean = true;
   loaded: boolean = false;
   enableAdd: boolean = true;
+  showUserForm: boolean = false;
 
   constructor() {}
 
@@ -20,48 +29,50 @@ export class UsersComponent implements OnInit {
       {
         firstName: 'John',
         lastName: 'Doe',
-        age: 20,
-        address: {
-          street: '123 Fake St',
-          city: 'Boston',
-          state: 'MA',
-        },
+        email: 'johndoe@aol.com',
         image: 'https://i.pravatar.cc/',
         isActive: false,
+        hide: true,
       },
       {
         firstName: 'Jane',
         lastName: 'Dane',
-        age: 22,
-        address: {
-          street: '242 Not Real St',
-          city: 'Dallas',
-          state: 'TX',
-        },
+        email: 'janedane@aol.com',
         image: 'https://i.pravatar.cc/',
         isActive: false,
+        hide: true,
       },
       {
         firstName: 'Steve',
         lastName: 'Stevenson',
-        age: 30,
-        address: {
-          street: '55 Real St',
-          city: 'Miami',
-          state: 'FL',
-        },
+        email: 'SS@aol.com',
         isActive: false,
+        hide: true,
       },
     ];
 
     this.loaded = true;
   }
 
-  addUser(user: IUser) {
-    this.users.push(user);
+  addUser() {
+    this.users.unshift(this.user);
+    console.log(this.user);
+    this.user = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      image: 'https://i.pravatar.cc/',
+      isActive: false,
+      hide: true,
+    };
   }
 
-  fireEvent(e: Event) {
-    console.log(e.type);
+  toggleHide(user: IUser) {
+    user.hide = !user.hide;
+  }
+
+  onSubmit(e: Event) {
+    e.preventDefault();
+    console.log('send');
   }
 }

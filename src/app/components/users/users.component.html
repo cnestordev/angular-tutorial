@@ -1,11 +1,37 @@
-<h2>Users:</h2>
 <button
-  (click)="addUser({ firstName: 'Mary', lastName: 'Jane' })"
-  [disabled]="!enableAdd"
-  class="button is-primary is-light"
+  (click)="showUserForm = !showUserForm"
+  class="button is-primary is-small"
 >
-  New User
+  Add User
 </button>
+<div *ngIf="showUserForm" class="field">
+  <form (submit)="onSubmit($event)" class="control">
+    <input
+      [(ngModel)]="user.firstName"
+      class="input"
+      type="text"
+      placeholder="first name"
+      name="firstName"
+    />
+    <input
+      [(ngModel)]="user.lastName"
+      class="input"
+      type="text"
+      placeholder="last name"
+      name="lastName"
+    />
+    <input
+      [(ngModel)]="user.email"
+      class="input"
+      type="text"
+      placeholder="email"
+      name="email"
+    />
+    <button [disabled]="!enableAdd" class="button is-primary is-light">
+      New User
+    </button>
+  </form>
+</div>
 
 <h4 *ngIf="!loaded">Loading...</h4>
 
@@ -18,15 +44,18 @@
     >
       <div class="profile-container">
         <img *ngIf="user.image" [src]="user.image" />
-        <h2 class="user-name">{{ user.firstName }} {{ user.lastName }}</h2>
+        <h2 class="user-name">
+          {{ user.firstName }} {{ user.lastName }}
+          <small
+            ><button class="button is-small" (click)="toggleHide(user)">
+              <i [ngClass]="user.hide ? 'fa fa-plus' : 'fa fa-minus'">
+              </i></button
+          ></small>
+        </h2>
       </div>
-      <ul *ngIf="showExtended && user.age && user.address">
+      <ul *ngIf="!user.hide">
         <li [class.is-light]="!user.isActive" class="tag is-link">
-          Age: {{ user.age }}
-        </li>
-        <li [class.is-light]="!user.isActive" class="tag is-info">
-          Address: {{ user.address.street }} {{ user.address.city }}
-          {{ user.address.state }}
+          <strong>Email</strong>: {{ user.email }}
         </li>
       </ul>
     </li>
