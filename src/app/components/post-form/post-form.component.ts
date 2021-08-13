@@ -16,13 +16,15 @@ export class PostFormComponent implements OnInit {
   addPost(title, body) {
     if (!title || !body) alert('please add post');
     else {
-      let post = {
+      let newPost = {
         id: Math.floor(Math.random() * 1000000),
         title,
         body,
       };
 
-      this.postServices.savePost({ title, body } as IPost).subscribe((post) => {
+      let postArr = [newPost, newPost, newPost];
+
+      this.postServices.savePost(postArr as IPost[]).subscribe((post) => {
         console.log(post);
       });
     }

@@ -23,7 +23,7 @@ export class PostService {
     return this.http.get<IPost[]>(this.postUrl);
   }
 
-  savePost(post: IPost): Observable<IPost> {
+  savePost(post: IPost[]): Observable<IPost> {
     return this.http.put<IPost>(this.postUrl, post, httpOptions);
   }
 }
