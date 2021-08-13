@@ -30,4 +30,10 @@ export class PostService {
     const url = `${this.postUrl}/${post.id}`;
     return this.http.put<IPost>(url, post, httpOptions);
   }
+
+  removePost(post: IPost | number): Observable<IPost> {
+    const id = typeof post === 'number' ? post : post.id;
+    const url = `${this.postUrl}/${id}`;
+    return this.http.delete<IPost>(url, httpOptions);
+  }
 }

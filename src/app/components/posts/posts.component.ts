@@ -16,7 +16,7 @@ export class PostsComponent implements OnInit {
     title: '',
     body: '',
   };
-  isEdit: boolean = true;
+  isEdit: boolean = false;
 
   constructor(private postServices: PostService) {}
 
@@ -29,6 +29,11 @@ export class PostsComponent implements OnInit {
 
   onNewPost(post) {
     this.posts.unshift(post);
+    this.currentPost = {
+      id: 0,
+      title: '',
+      body: '',
+    };
   }
 
   editPost(post: IPost) {
@@ -48,6 +53,15 @@ export class PostsComponent implements OnInit {
           body: '',
         };
       }
+    });
+  }
+
+  removePost(post: IPost) {
+    this.postServices.removePost(post.id).subscribe(() => {
+      // delete from posts array
+      this.posts = this.posts.filter((curr) => {
+        return curr.id !== post.id;
+      });
     });
   }
 }

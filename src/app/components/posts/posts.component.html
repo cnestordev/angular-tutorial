@@ -11,7 +11,7 @@
     <div class="message-header">
       {{ post.title }}
       <span class="icons-container">
-        <i class="far fa-trash-alt"></i>
+        <i (click)="removePost(post)" class="far fa-trash-alt"></i>
         <i (click)="editPost(post)" class="far fa-edit"></i>
       </span>
     </div>
