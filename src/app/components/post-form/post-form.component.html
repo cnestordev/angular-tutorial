@@ -1,0 +1,15 @@
+<h2 class="center">Add Post</h2>
+
+<form class="container">
+  <div class="control">
+    <input #title class="input" type="text" placeholder="Text input" />
+  </div>
+  <textarea #body class="textarea" placeholder="e.g. Hello world"></textarea>
+  <button
+    (click)="addPost(title.value, body.value)"
+    id="button"
+    class="button is-primary"
+  >
+    Button
+  </button>
+</form>

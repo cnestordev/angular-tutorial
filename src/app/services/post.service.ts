@@ -1,7 +1,14 @@
-import { IPost } from './../models/Post';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { IPost } from './../models/Post';
 import { Observable } from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +21,9 @@ export class PostService {
 
   getPosts(): Observable<IPost[]> {
     return this.http.get<IPost[]>(this.postUrl);
+  }
+
+  savePost(post: IPost): Observable<IPost> {
+    return this.http.put<IPost>(this.postUrl, post, httpOptions);
   }
 }
