@@ -11,6 +11,7 @@ import { PostService } from '../../services/post.service';
 export class PostFormComponent implements OnInit {
   //
   @Output() newPost: EventEmitter<IPost> = new EventEmitter();
+  @Output() updatedPost: EventEmitter<IPost> = new EventEmitter();
   @Input() currentPost: IPost;
   @Input() isEdit: boolean;
 
@@ -34,6 +35,10 @@ export class PostFormComponent implements OnInit {
   }
 
   updatePost() {
-    console.log(123);
+    this.postServices.updatePost(this.currentPost).subscribe((post) => {
+      console.log(post);
+      this.isEdit = false;
+      this.updatedPost.emit(post);
+    });
   }
 }

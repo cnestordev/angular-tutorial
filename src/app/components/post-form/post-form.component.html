@@ -2,6 +2,9 @@
 
 <form class="container">
   <div class="control">
+    <span class="tag is-primary is-light"
+      >POST ID: {{ currentPost.id === 0 ? "N/A" : currentPost.id }}</span
+    >
     <input
       [(ngModel)]="currentPost.title"
       #title
@@ -10,9 +13,6 @@
       placeholder="Text input"
       name="title"
     />
-    <span class="tag is-primary is-light"
-      >ID: {{ currentPost.id === 0 ? "N/A" : currentPost.id }}</span
-    >
   </div>
   <textarea
     [(ngModel)]="currentPost.body"
