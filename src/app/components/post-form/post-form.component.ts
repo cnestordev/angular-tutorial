@@ -27,9 +27,7 @@ export class PostFormComponent implements OnInit {
         body,
       };
 
-      let postArr = [newPost, newPost, newPost];
-
-      this.postServices.savePost(postArr as IPost[]).subscribe((post) => {
+      this.postServices.savePost(newPost as IPost).subscribe((post) => {
         this.newPost.emit(post);
       });
     }

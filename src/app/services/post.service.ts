@@ -14,8 +14,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PostService {
-  postUrl: string =
-    'https://jsonblob.com/api/jsonblob/a2b01cdc-fc61-11eb-8616-37df21072d73';
+  postUrl: string = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +22,7 @@ export class PostService {
     return this.http.get<IPost[]>(this.postUrl);
   }
 
-  savePost(post: IPost[]): Observable<IPost> {
-    return this.http.put<IPost>(this.postUrl, post, httpOptions);
+  savePost(post: IPost): Observable<IPost> {
+    return this.http.post<IPost>(this.postUrl, post, httpOptions);
   }
 }
