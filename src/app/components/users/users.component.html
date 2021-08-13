@@ -12,6 +12,9 @@
       type="text"
       placeholder="first name"
       name="firstName"
+      #userFirstName="ngModel"
+      required
+      minlength="2"
     />
     <input
       [(ngModel)]="user.lastName"
@@ -19,6 +22,8 @@
       type="text"
       placeholder="last name"
       name="lastName"
+      required
+      minlength="2"
     />
     <input
       [(ngModel)]="user.email"
