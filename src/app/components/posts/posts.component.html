@@ -1,11 +1,18 @@
-<app-post-form (newPost)="onNewPost($event)"></app-post-form>
+<app-post-form
+  [currentPost]="currentPost"
+  [isEdit]="isEdit"
+  (newPost)="onNewPost($event)"
+></app-post-form>
 <h2>Posts:</h2>
 
 <div class="container">
   <article *ngFor="let post of posts" class="message is-info">
     <div class="message-header">
       {{ post.title }}
-      <button class="delete"></button>
+      <span class="icons-container">
+        <i class="far fa-trash-alt"></i>
+        <i (click)="editPost(post)" class="far fa-edit"></i>
+      </span>
     </div>
     <div class="message-body">
       {{ post.body }}

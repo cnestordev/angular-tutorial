@@ -2,14 +2,42 @@
 
 <form class="container">
   <div class="control">
-    <input #title class="input" type="text" placeholder="Text input" />
+    <input
+      [(ngModel)]="currentPost.title"
+      #title
+      class="input"
+      type="text"
+      placeholder="Text input"
+      name="title"
+    />
+    <span class="tag is-primary is-light"
+      >ID: {{ currentPost.id === 0 ? "N/A" : currentPost.id }}</span
+    >
   </div>
-  <textarea #body class="textarea" placeholder="e.g. Hello world"></textarea>
+  <textarea
+    [(ngModel)]="currentPost.body"
+    #body
+    class="textarea"
+    placeholder="e.g. Hello world"
+    name="body"
+  ></textarea>
+  <input type="hidden" name="id" [(ngModel)]="currentPost.id" />
   <button
+    *ngIf="!isEdit"
     (click)="addPost(title.value, body.value)"
     id="button"
     class="button is-primary"
+    name="id"
   >
-    Button
+    Add Post
+  </button>
+  <button
+    *ngIf="isEdit"
+    (click)="updatePost()"
+    id="button"
+    class="button is-primary"
+    name="id"
+  >
+    Update Post
   </button>
 </form>
