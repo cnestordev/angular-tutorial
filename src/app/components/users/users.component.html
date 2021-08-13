@@ -5,7 +5,7 @@
   Add User
 </button>
 <div *ngIf="showUserForm" class="field">
-  <form (submit)="onSubmit($event)" class="control">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="control">
     <input
       [(ngModel)]="user.firstName"
       class="input"
