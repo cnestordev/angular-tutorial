@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
-import { IPost } from '../../models/Post';
+import { IPost } from './../../models/Post';
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -9,6 +9,11 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./post-form.component.sass'],
 })
 export class PostFormComponent implements OnInit {
+  post: IPost;
+
+  //
+  @Output() newPost: EventEmitter<IPost> = new EventEmitter();
+
   constructor(private postServices: PostService) {}
 
   ngOnInit(): void {}
@@ -25,7 +30,7 @@ export class PostFormComponent implements OnInit {
       let postArr = [newPost, newPost, newPost];
 
       this.postServices.savePost(postArr as IPost[]).subscribe((post) => {
-        console.log(post);
+        this.newPost.emit(post);
       });
     }
   }

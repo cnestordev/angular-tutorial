@@ -19,6 +19,7 @@ export class UsersComponent implements OnInit {
     hide: true,
   };
   users!: IUser[];
+  // toggle user's extended info
   showExtended: boolean = true;
   loaded: boolean = false;
   enableAdd: boolean = true;
@@ -29,12 +30,16 @@ export class UsersComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    // makes a GET request using the UserService
+    // subscribes to the service and keeps watching it for changes
     this.userService.getData().subscribe((data) => {
       console.log('*************');
       console.log(data);
       console.log('*************');
     });
 
+    // makes GET request to a server using UserService
+    // subscribes to it and look for any changes
     this.userService.getUsers().subscribe((users) => {
       this.users = users;
       this.loaded = true;
