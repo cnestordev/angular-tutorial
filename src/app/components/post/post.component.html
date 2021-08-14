@@ -1,0 +1,14 @@
+<div class="container">
+  <article *ngIf="post" class="message is-info">
+    <div class="message-header">
+      {{ post.title }}
+      <!-- <span class="icons-container">
+          <i (click)="removePost(post)" class="far fa-trash-alt"></i>
+          <i (click)="editPost(post)" class="far fa-edit"></i>
+        </span> -->
+    </div>
+    <div class="message-body">
+      {{ post.body }}
+    </div>
+  </article>
+</div>
